@@ -2,7 +2,7 @@
 /**
  * L'en-tête du thème
  * Ceci est le fichier d'en-tête de toutes les pages qui appellent la fonction wp_head().
- * 
+ * test github
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  */
