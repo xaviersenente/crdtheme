@@ -1,4 +1,4 @@
-Thème du Concervatoire de Belfort
+Thème du Conservatoire de Belfort
 =================================
 
 Le thème est s'appuie en partie sur Underscore.
