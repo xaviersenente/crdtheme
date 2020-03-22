@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Agenda
+Template Name: Sites
 */
 
 get_header(); ?>
@@ -13,18 +13,7 @@ get_header(); ?>
       <?php
         $today = date('Y-m-d H:i:s');
         $args = array(
-          'post_type' => 'evenement',
-          'posts_per_page' => 9,
-          'meta_key' => 'date',
-          'orderby' => 'meta_value',
-          'order' => 'ASC',
-          'meta_query' => array(
-            array(
-              'key' => 'date',
-              'value' => $today,
-              'compare' => '>='
-            )
-          )
+          'post_type' => 'site'
         );
         
         query_posts( $args );

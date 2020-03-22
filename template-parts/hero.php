@@ -76,7 +76,35 @@
     <?php endif; ?>
 		</div>
 	</div>
+
+  <?php if ( is_page('sites') ) : ?>
+
+  <div class="hero__map map">
+    <?php
+    $markers = array(
+      'post_type' => 'site'
+    );
+    query_posts( $markers );
+
+    while ( have_posts() ) : the_post();
+
+    $marker = get_field('adresse_site');
+
+    ?>
+    <div class="map__marker" data-lat="<?php echo esc_attr($marker['lat']); ?>" data-lng="<?php echo esc_attr($marker['lng']); ?>"></div>
+
+    <?php endwhile;
+    // Reset Query
+    wp_reset_query();
+    ?>
+  </div>
+
+  <?php else : ?>
+
 	<div class="duotone hero__img">
 		<?php the_post_thumbnail(); ?>
 	</div>
+
+  <?php endif; ?>
+
 </div>

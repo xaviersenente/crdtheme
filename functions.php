@@ -80,6 +80,14 @@ function crdtheme_scripts() {
 	wp_enqueue_script( 'crdtheme-vendors', get_template_directory_uri() . '/js/vendors.js');
 	wp_enqueue_script( 'crdtheme-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
 
+	wp_register_script( 'googlemap', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCOKyUna7aQ62jzqgj0szNLExpgDGHThV4' , '', null , true );
+	wp_register_script( 'gmap', get_template_directory_uri() . '/js/gmap.js' , '', null, true );
+	
+	if (is_singular('site') || is_page('sites')) {
+		wp_enqueue_script( 'googlemap' );
+		wp_enqueue_script( 'gmap' );
+}
+
 }
 /**
  * @param string 'wp_enqueue_scripts' => Se déclenche lorsque les scripts et les styles sont mis en file d'attente.
