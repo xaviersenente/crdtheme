@@ -1,7 +1,7 @@
 <?php 
-  $directeur  = get_field_object('directeur_site');
-  $adresse    = get_field_object('adresse_site');
-  $horaires   = get_field_object('horaires_site');
+  $directeur  = get_query_var('directeur');
+  $adresse    = get_query_var('adresse');
+  $horaires   = get_query_var('horaires');
 
 ?>
 

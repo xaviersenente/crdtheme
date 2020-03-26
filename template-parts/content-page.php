@@ -8,7 +8,7 @@
  */
 
 ?>
-<?php get_template_part( 'template-parts/hero', 'hero' ) ?>
+<?php get_template_part( 'template-parts/hero' ) ?>
 <div class="gutemberg">
 	<?php the_content(); ?>
 </div>

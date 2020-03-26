@@ -102,7 +102,14 @@
   <?php else : ?>
 
 	<div class="duotone hero__img">
-		<?php the_post_thumbnail(); ?>
+    <?php 
+    if ( has_post_thumbnail() ) :
+      /**
+       * Affiche l'image mise en avant
+       * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/
+       */
+      the_post_thumbnail( 'full' );
+    endif; ?>
 	</div>
 
   <?php endif; ?>

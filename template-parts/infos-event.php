@@ -1,13 +1,17 @@
 <?php 
-  $taxonomies = get_post_taxonomies();				// récupère toutes les taxonomies du post
-  $dateObject = get_field_object('date');			// récupère la date
-
+  $taxonomies    = get_query_var('taxonomies');
+  $dateObject    = get_query_var('dateObject');
   /**
-   * Script pour formater la date
-   * locate_template() est l'équivalent de get_template_part() mais permet de récupérer les variables du fichier php et de les passer au template.
-   * @link https://developer.wordpress.org/reference/functions/locate_template/
+   * Format d'affichage de la date
+   * @link http://php.net/manual/fr/function.date.php
+   * La fonction strtotime() essaye de lire une date au format anglais fournie par le paramètre time, et de la transformer en timestamp Unix
+   * @link http://php.net/manual/fr/function.strtotime.php
+   * date_i18n() renvoie la date au format local, ici, en français
+   * @link https://codex.wordpress.org/Function_Reference/date_i18n
    */
-  include(locate_template('template-parts/format-date.php'));
+  $dateformat    = 'l j F Y \à G\hi';
+  $unixtimestamp = strtotime( $dateObject['value'] );
+  $date          = date_i18n( $dateformat, $unixtimestamp );
 ?>
 
 <ul class="infos">

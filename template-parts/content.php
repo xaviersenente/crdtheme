@@ -3,35 +3,38 @@
  * Template part pour afficger les posts
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
-
-	$title 		  = get_the_title();							// récupère le titre
-	$img 		 	  = get_the_post_thumbnail( $post_id, 'square' ); // récupère l'image mise en avant en utilisant un format carré.
-	$excerpt 	  = get_the_excerpt();						// récupère l'extrait
-	$content 	  = get_the_content();						// récupère le contenu
-
 ?>
 
 <div class="grid">
 	<div class="duotone single__img">
-		<?php echo $img; ?>
+		<?php the_post_thumbnail( 'square' ); ?>
 	</div>
 	<header class="single__header">
 		
-		<h1 class="single__title"><?php echo $title; ?></h1>
+		<?php the_title( '<h1 class="single__title">', '</h1>' ); ?>
 
 		<?php if( is_singular( 'event' ) ) {
-			include(locate_template( 'template-parts/infos-event.php' ));
+			set_query_var('taxonomies', get_post_taxonomies());    // récupère toutes les taxonomies du post
+			set_query_var('dateObject', get_field_object('date')); // récupère la date
+			set_query_var( 'date', get_field( 'date' ) );
+
+			get_template_part( 'template-parts/infos-event' );
+
 		} elseif( is_singular( 'site' ) ) {
-			include(locate_template( 'template-parts/infos-site.php' ));
+			set_query_var('directeur', get_field_object('directeur_site'));
+			set_query_var('adresse', get_field_object('adresse_site'));
+			set_query_var('horaires', get_field_object('horaires_site'));
+	
+			get_template_part( 'template-parts/infos-site' );
 		} ?>
 
 	</header>
 </div>
 <p class="single__excerpt">
-	<?php echo $excerpt; ?>
+	<?php echo get_the_excerpt(); ?>
 </p>
 <div class="gutemberg">
-	<?php echo $content; ?>
+	<?php the_content(); ?>
 </div>
 
 <?php
