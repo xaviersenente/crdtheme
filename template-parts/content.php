@@ -19,8 +19,8 @@
 		
 		<h1 class="single__title"><?php echo $title; ?></h1>
 
-		<?php if( is_singular( 'evenement' ) ) {
-			include(locate_template( 'template-parts/infos-evenement.php' ));
+		<?php if( is_singular( 'event' ) ) {
+			include(locate_template( 'template-parts/infos-event.php' ));
 		} elseif( is_singular( 'site' ) ) {
 			include(locate_template( 'template-parts/infos-site.php' ));
 		} ?>

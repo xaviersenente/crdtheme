@@ -93,7 +93,7 @@ get_header(); ?>
             if( $cptType['value'] == 'events' ) {
               $today = date('Y-m-d H:i:s');
               $args = array(
-                'post_type' => 'evenement',
+                'post_type' => 'event',
                 'posts_per_page' => 3,
                 'meta_key' => 'date',
                 'orderby' => 'meta_value',
