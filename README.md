@@ -1,7 +1,7 @@
 Thème Wordpress du Conservatoire de Belfort
 =================================
 
-Pour une meilleure compréhension du code toutes les fonction Wordpress utilisée sont commentées et renvoient vers leur documentation respectives.
+Pour une meilleure compréhension du code toutes les fonctions Wordpress utilisées sont commentées et renvoient vers leur documentation respective.
 
 
 Pour suivre la documentation complète sur la création du thème :
