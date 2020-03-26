@@ -23,11 +23,12 @@
       </div>
       <nav class="footer__menu">
         <h3 class="footer__title">Menu</h3>
-        <ul class="listUnstyled">
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">Archives</a></li>
-          <li><a href="#">Contacts &amp; accès</a></li>
-        </ul>
+        <?php wp_nav_menu( array(
+          'theme_location' => 'footer-menu',
+          'container'      => false,
+          'menu_class'     => 'listUnstyled',
+          'depth'          => 1
+        ) ); ?>
       </nav>
       
       <div class="footer__contact">

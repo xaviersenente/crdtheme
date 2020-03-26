@@ -46,10 +46,10 @@
          * wp_get_attachment_image_src() renvoie l'image attachée
          * @link https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/
          * 
-         * * get_theme_mod() récupère la valeur de modification du thème pour le thème actuel.
+         * get_theme_mod() récupère la valeur de modification du thème pour le thème actuel.
          * @link https://developer.wordpress.org/reference/functions/get_theme_mod/
          */
-        $logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
+        $logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) );
         /**
          * Détermine si le site possède un logo personnalisé.
          * @link https://developer.wordpress.org/reference/functions/has_custom_logo/
@@ -77,10 +77,9 @@
          * @link https://developer.wordpress.org/reference/functions/wp_nav_menu/
          */
         wp_nav_menu( array(
-          'theme_location' => 'menu-1',
+          'theme_location' => 'main-menu',
           'container'      => false,
           'menu_class'     => 'menu__list',
-          'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
           'depth'          => 2,
           'walker'         => new WPDocs_Walker_Nav_Menu()
         ) );

@@ -17,17 +17,25 @@ get_header();
 
 	<?php
 	if ( have_posts() ) :
+		/**
+		 * La boucle de wordpress
+		 * @link https://developer.wordpress.org/themes/basics/the-loop/
+		 */
 		while ( have_posts() ) :
 			the_post();
 
-			/*
-				* Include the Post-Type-specific template for the content.
-				* If you want to override this in a child theme, then include a file
-				* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				*/
+			/**
+			 * permet de charger un morceau de template
+			 * @link https://developer.wordpress.org/reference/functions/get_template_part/
+			 */
 			get_template_part( 'template-parts/content', get_post_type() );
 
-		endwhile;
+			// Si les commentaires sont ouverts ou si nous avons au moins un commentaire, chargez le modèle de commentaire.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		endwhile; // Fin de la boucle.
 	endif;
 	?>
 

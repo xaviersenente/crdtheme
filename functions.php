@@ -51,7 +51,8 @@ if ( ! function_exists( 'crdtheme_setup' ) ) :
 		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
 		 */
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'crdtheme' )
+			'main-menu' => esc_html__( 'En-tête de page', 'crdtheme' ),
+			'footer-menu' => esc_html__( 'Pied de page', 'crdtheme' )
 		) );
 		
 	}
