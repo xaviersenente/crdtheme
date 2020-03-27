@@ -264,3 +264,24 @@ function crdtheme_gutenberg_gallery_block() {
 }
 add_action( 'enqueue_block_editor_assets', 'crdtheme_gutenberg_gallery_block' );
 
+
+function acf_load_cpt_field_choices( $field ) {
+    
+	$args = array(
+		'public'   => true,
+		'_builtin' => false
+  );
+	$choices = get_post_types( $args );
+
+	// loop through array and add to field 'choices'
+	if( is_array($choices) ) {
+		foreach( $choices as $choice ) {
+			$field['choices'][ $choice ] = $choice;
+		}
+	}
+	
+	return $field;
+	
+}
+
+add_filter('acf/load_field/name=cpt_header_archive', 'acf_load_cpt_field_choices');

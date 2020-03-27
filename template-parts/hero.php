@@ -15,10 +15,19 @@
           <?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?>
         </h3>
          
+      
       <?php 
-        /**
-         * @link https://developer.wordpress.org/themes/basics/conditional-tags/#a-taxonomy-page
-         */
+        elseif ( is_archive() ) :
+          $rows = get_field( 'header_archive', 'infos' );
+          if( $rows ) :
+            foreach( $rows as $row ) :
+              if ( $row['cpt_header_archive'] == get_post_type() ) : ?>
+                <h1><?php echo $row['title_header_archive']; ?></h1>
+              <?php
+              endif;
+            endforeach;
+          endif;
+
         elseif ( is_tax() ) :
           /**
            * Affiche le titre de l'archive en fonction de l'objet interrogé.
@@ -58,6 +67,18 @@
 
       <?php endwhile; 
           endif; 
+
+        elseif ( is_archive() ) :
+          $rows = get_field( 'header_archive', 'infos' );
+          if( $rows ) :
+            foreach( $rows as $row ) :
+              if ( $row['cpt_header_archive'] == get_post_type() ) : ?>
+                <p class="hero__cwIntro"><?php echo $row['chapo_header_archive']; ?></p>
+              <?php
+              endif;
+            endforeach;
+          endif;
+        
         elseif ( is_tax() ) :
           /**
            * Affiche la description de la page d'archive
@@ -88,7 +109,7 @@
 
     while ( have_posts() ) : the_post();
 
-    $marker = get_field( 'adresse_site' );
+      $marker = get_field( 'adresse_site' );
 
     ?>
     <div class="map__marker" data-lat="<?php echo esc_attr( $marker['lat'] ); ?>" data-lng="<?php echo esc_attr( $marker['lng'] ); ?>"></div>
@@ -103,13 +124,26 @@
 
 	<div class="duotone hero__img">
     <?php 
-    if ( has_post_thumbnail() ) :
       /**
        * Affiche l'image mise en avant
        * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/
        */
-      the_post_thumbnail( 'full' );
-    endif; ?>
+
+      if ( is_archive() ) {
+        $rows = get_field( 'header_archive', 'infos' );
+        if( $rows ) {
+	        foreach( $rows as $row ) {
+            if ( $row['cpt_header_archive'] == get_post_type() ) {
+              echo wp_get_attachment_image( $row['img_header_archive'], 'full' );
+            }
+          }
+        }
+      } else {
+
+        the_post_thumbnail( 'full' );
+
+      } 
+   ?>
 	</div>
 
   <?php endif; ?>
