@@ -13,17 +13,17 @@
 		
 		<?php the_title( '<h1 class="single__title">', '</h1>' ); ?>
 
-		<?php if( is_singular( 'event' ) ) {
-			set_query_var('taxonomies', get_post_taxonomies());    // récupère toutes les taxonomies du post
-			set_query_var('dateObject', get_field_object('date')); // récupère la date
+		<?php if ( is_singular( 'event' ) ) {
+			set_query_var( 'taxonomies', get_post_taxonomies() ); 
+			set_query_var( 'dateObject', get_field_object( 'date' ) ); 
 			set_query_var( 'date', get_field( 'date' ) );
 
 			get_template_part( 'template-parts/infos-event' );
 
-		} elseif( is_singular( 'site' ) ) {
-			set_query_var('directeur', get_field_object('directeur_site'));
-			set_query_var('adresse', get_field_object('adresse_site'));
-			set_query_var('horaires', get_field_object('horaires_site'));
+		} elseif ( is_singular( 'site' ) ) {
+			set_query_var( 'directeur', get_field_object( 'directeur_site' ) );
+			set_query_var( 'adresse', get_field_object( 'adresse_site' ) );
+			set_query_var( 'horaires', get_field_object( 'horaires_site' ) );
 	
 			get_template_part( 'template-parts/infos-site' );
 		} ?>
@@ -38,14 +38,14 @@
 </div>
 
 <?php
-	if( is_singular('site') ): 
+	if ( is_singular( 'site' ) ) : 
 
-		$location = get_field('adresse_site');
+		$location = get_field( 'adresse_site' );
 
-		if( !empty($location) ): ?>
+		if ( !empty($location) ) : ?>
     
 		<div class="map">
-			<div class="map__marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
+			<div class="map__marker" data-lat="<?php echo esc_attr( $location['lat'] ); ?>" data-lng="<?php echo esc_attr( $location['lng'] ); ?>">
 				<div class="map__infoWindows infoWindows">
 					<div class="infoWindows__img">
 						<?php echo $img; ?>
@@ -59,6 +59,6 @@
 			</div>
 		</div>
 
-	<?php 
-			endif; 
-		endif; ?>
+<?php 
+		endif; 
+	endif; ?>

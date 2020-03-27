@@ -43,18 +43,19 @@
 		<div class="header__start">
       <?php 
         /**
-         * wp_get_attachment_image_src() renvoie l'image attachée
-         * @link https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/
-         * 
-         * get_theme_mod() récupère la valeur de modification du thème pour le thème actuel.
-         * @link https://developer.wordpress.org/reference/functions/get_theme_mod/
-         */
-        $logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) );
-        /**
          * Détermine si le site possède un logo personnalisé.
          * @link https://developer.wordpress.org/reference/functions/has_custom_logo/
          */
         if ( has_custom_logo() ) :
+          /**
+           * wp_get_attachment_image_src() renvoie l'image attachée
+           * @link https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/
+           * 
+           * get_theme_mod() récupère la valeur de modification du thème pour le thème actuel.
+           * @link https://developer.wordpress.org/reference/functions/get_theme_mod/
+           */
+          $logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) );
+        
       ?>
       <a class="header__logo" href="<?php 
         /**
@@ -64,7 +65,7 @@
         echo esc_url( home_url( '/' ) ); ?>" aria-label="Logo du Conservatoire">
         <img src="<?php echo $logo[0]; ?>" class="style-svg"/>
       </a>
-        <?php endif; ?>
+      <?php endif; ?>
     </div>
 		<div class="header__end">
       <button class="header__menuBtn menuBurger" aria-label="menu" aria-expanded="false" aria-controls="mainNav">

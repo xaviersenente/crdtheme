@@ -9,10 +9,10 @@
         if ( is_front_page() ) : ?>
 
         <h1 class="hero__title">
-          <?php echo html_entity_decode(get_bloginfo('name')); ?>
+          <?php echo html_entity_decode( get_bloginfo( 'name' ) ); ?>
         </h1>
         <h3 class="hero__subTitle">
-          <?php echo html_entity_decode(get_bloginfo('description')); ?>
+          <?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?>
         </h3>
          
       <?php 
@@ -42,11 +42,11 @@
          * Boucle du repéteur d'ACF
          * @link https://www.advancedcustomfields.com/resources/repeater/
          */
-        if( have_rows('item_menu') ):
-          while ( have_rows('item_menu') ) : the_row();
-            $itemMenuSvg  = get_sub_field('item_menu_svg');
-            $itemMenuTxt  = get_sub_field('item_menu_txt');
-            $itemMenuLink = get_sub_field('item_menu_link');
+        if( have_rows( 'item_menu' ) ):
+          while ( have_rows( 'item_menu' ) ) : the_row();
+            $itemMenuSvg  = get_sub_field( 'item_menu_svg' );
+            $itemMenuTxt  = get_sub_field( 'item_menu_txt' );
+            $itemMenuLink = get_sub_field( 'item_menu_link' );
       ?>
 
         <h3 class="hero__cwTitle">
@@ -77,7 +77,7 @@
 		</div>
 	</div>
 
-  <?php if ( is_page('sites') ) : ?>
+  <?php if ( is_page( 'sites' ) ) : ?>
 
   <div class="hero__map map">
     <?php
@@ -88,10 +88,10 @@
 
     while ( have_posts() ) : the_post();
 
-    $marker = get_field('adresse_site');
+    $marker = get_field( 'adresse_site' );
 
     ?>
-    <div class="map__marker" data-lat="<?php echo esc_attr($marker['lat']); ?>" data-lng="<?php echo esc_attr($marker['lng']); ?>"></div>
+    <div class="map__marker" data-lat="<?php echo esc_attr( $marker['lat'] ); ?>" data-lng="<?php echo esc_attr( $marker['lng'] ); ?>"></div>
 
     <?php endwhile;
     // Reset Query

@@ -1,6 +1,6 @@
 <?php 
-  $taxonomies    = get_query_var('taxonomies');
-  $dateObject    = get_query_var('dateObject');
+  $taxonomies    = get_query_var( 'taxonomies' );
+  $dateObject    = get_query_var( 'dateObject' );
   /**
    * Format d'affichage de la date
    * @link http://php.net/manual/fr/function.date.php
