@@ -342,7 +342,8 @@
           lng: parseFloat( lng )
       };
 
-      var markerIcon = 'http://localhost:8888/crd2020/wp-content/themes/crdtheme/img/marker.png';
+      //console.log(themeUri);
+      var markerIcon = `${themeUri}/img/marker.png`;
   
       // Create marker instance.
       var marker = new google.maps.Marker({
