@@ -30,11 +30,6 @@ get_header();
 			 */
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			// Si les commentaires sont ouverts ou si nous avons au moins un commentaire, chargez le modèle de commentaire.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
 		endwhile; // Fin de la boucle.
 	endif;
 	?>
