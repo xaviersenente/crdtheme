@@ -576,6 +576,14 @@ h2 {
   line-height: 1.1;
 }
 
+.admin-bar {
+  margin-top: 32px;
+}
+
+.admin-bar .header {
+  top: 32px;
+}
+
 @font-face {
   font-family: "icomoon";
   src: url(fonts/icomoon.ttf) format("truetype"), url(fonts/icomoon.woff) format("woff");
