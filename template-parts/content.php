@@ -41,16 +41,16 @@
 
 		$location = get_field( 'adresse_site' );
 
-		if ( !empty($location) ) : ?>
+		if ( $location ) : ?>
     
 		<div class="map">
 			<div class="map__marker" data-lat="<?php echo esc_attr( $location['lat'] ); ?>" data-lng="<?php echo esc_attr( $location['lng'] ); ?>">
 				<div class="map__infoWindows infoWindows">
 					<div class="infoWindows__img">
-						<?php echo $img; ?>
+						<?php the_post_thumbnail( 'square' ); ?>
 					</div>
 					<div class="infoWindows__infos">
-						<h3><?php echo get_the_title(); ?></h3>
+						<?php the_title( '<h3>', '</h3>' ); ?>
 						<p><?php echo $location['address']; ?></p>
 					</div>
 				</div>
