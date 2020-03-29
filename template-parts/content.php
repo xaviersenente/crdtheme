@@ -16,7 +16,6 @@
 		<?php if ( is_singular( 'event' ) ) {
 			set_query_var( 'taxonomies', get_post_taxonomies() ); 
 			set_query_var( 'dateObject', get_field_object( 'date' ) ); 
-			set_query_var( 'date', get_field( 'date' ) );
 
 			get_template_part( 'template-parts/infos-event' );
 

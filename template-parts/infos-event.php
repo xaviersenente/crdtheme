@@ -12,6 +12,7 @@
   $dateformat    = 'l j F Y \à G\hi';
   $unixtimestamp = strtotime( $dateObject['value'] );
   $date          = date_i18n( $dateformat, $unixtimestamp );
+  
 ?>
 
 <ul class="infos">
@@ -19,19 +20,23 @@
     <span class="infos__label"><?php echo $dateObject['label'] ?></span>
     <span class="infos__value"><?php echo $date; ?></span>
   </li>
-  <?php foreach ( $taxonomies as $taxonomy ) :
-        /**
-         * On retourne un objet de chaque taxonomie pour pouvoir récupérer leur nom.
-         * @link https://developer.wordpress.org/reference/functions/get_taxonomy/
-         */
-        $taxonomyName = get_taxonomy( $taxonomy );
-        /**
-         * Renvoie la liste des termes d'une taxonomie
-         * @link https://developer.wordpress.org/reference/functions/get_terms/
-         */
-        $terms = get_terms( $taxonomy ); ?>
+  <?php 
+    foreach ( $taxonomies as $taxonomy ) :
+      /**
+       * On retourne un objet de chaque taxonomie pour pouvoir récupérer leur nom.
+       * @link https://developer.wordpress.org/reference/functions/get_taxonomy/
+       */
+      $taxonomyObject = get_taxonomy( $taxonomy );
+      
+      /**
+       * Renvoie la liste des termes d'une taxonomie qui sont associés à la page.
+       * @link https://developer.wordpress.org/reference/functions/get_the_terms/
+       */
+      $terms = get_the_terms( get_the_ID(), $taxonomy );
+
+      if ( $terms ) : ?>
     <li class="infos__row">
-      <span class="infos__label"><?php echo $taxonomyName->label; ?></span>
+      <span class="infos__label"><?php echo $taxonomyObject->label; ?></span>
       <span class="infos__value"> 
         <?php foreach ( $terms as $term ) :
           /**
@@ -43,5 +48,6 @@
         <?php endforeach; ?>
       </span>
     </li>
+    <?php endif; ?>
   <?php endforeach; ?>
 </ul>
