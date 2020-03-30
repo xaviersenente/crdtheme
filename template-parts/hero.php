@@ -98,54 +98,49 @@
 		</div>
 	</div>
 
-  <?php if ( is_post_type_archive( 'site' ) ) : ?>
+  <?php 
+    /**
+     * Affiche l'image mise en avant
+     * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/
+     */
 
-  <div class="hero__map map">
-    <?php
-    $markers = array(
-      'post_type' => 'site'
-    );
-    query_posts( $markers );
+    if ( is_archive() ) :
+      $rows = get_field( 'header_archive', 'infos' );
+      if( $rows ) :
+        foreach( $rows as $row ) :
+          if ( $row['choice_header_archive'] ) : ?>
+            <div class="hero__map map" data-zoom="<?php echo $row['zoom_map_header_archive']?>">
+              <?php
+              $markers = array(
+                'post_type' => 'site'
+              );
+              query_posts( $markers );
 
-    while ( have_posts() ) : the_post();
+              while ( have_posts() ) : the_post();
 
-      $marker = get_field( 'adresse_site' );
+                $marker = get_field( 'adresse_site' );
 
-    ?>
-    <div class="map__marker" data-lat="<?php echo esc_attr( $marker['lat'] ); ?>" data-lng="<?php echo esc_attr( $marker['lng'] ); ?>"></div>
+              ?>
+              <div class="map__marker" data-lat="<?php echo esc_attr( $marker['lat'] ); ?>" data-lng="<?php echo esc_attr( $marker['lng'] ); ?>"></div>
 
-    <?php endwhile;
-    // Reset Query
-    wp_reset_query();
-    ?>
-  </div>
+              <?php endwhile;
+              // Reset Query
+              wp_reset_query();
+              ?>
+            </div>
+          <?php elseif ( $row['cpt_header_archive'] == get_post_type() ) : ?>
+            <div class="duotone hero__img">
+              <?php echo wp_get_attachment_image( $row['img_header_archive'], 'full' ); ?>
+            </div>
+          <?php endif;
+        endforeach;
+      endif;
+    else : ?>
+      <div class="duotone hero__img">
+        <?php the_post_thumbnail( 'full' ); ?>
+      </div>
+    <?php endif; 
+  ?>
 
-  <?php else : ?>
-
-	<div class="duotone hero__img">
-    <?php 
-      /**
-       * Affiche l'image mise en avant
-       * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/
-       */
-
-      if ( is_archive() ) {
-        $rows = get_field( 'header_archive', 'infos' );
-        if( $rows ) {
-	        foreach( $rows as $row ) {
-            if ( $row['cpt_header_archive'] == get_post_type() ) {
-              echo wp_get_attachment_image( $row['img_header_archive'], 'full' );
-            }
-          }
-        }
-      } else {
-
-        the_post_thumbnail( 'full' );
-
-      } 
-   ?>
-	</div>
-
-  <?php endif; ?>
 
 </div>

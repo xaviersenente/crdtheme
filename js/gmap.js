@@ -396,8 +396,9 @@
           map.setCenter( bounds.getCenter() );
   
       // Case: Multiple markers.
-      } else{
-          map.fitBounds( bounds );
+      } else {
+          // map.fitBounds( bounds );
+          map.setCenter( bounds.getCenter() );
       }
   }
   
