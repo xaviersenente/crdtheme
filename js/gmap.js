@@ -18,12 +18,12 @@
   
       // Create gerenic map.
       var mapArgs = {
-          zoom        : $el.data('zoom') || 16,
-          mapTypeId   : google.maps.MapTypeId.ROADMAP,
-          mapTypeControl : false,
-          streetViewControl: false,
-          fullscreenControl: false,
-          styles: [
+        zoom        : $el.data('zoom') || 14,
+        mapTypeId   : google.maps.MapTypeId.ROADMAP,
+        mapTypeControl : false,
+        streetViewControl: false,
+        fullscreenControl: false,
+        styles: [
             {
                 "featureType": "all",
                 "elementType": "labels.text.fill",
@@ -342,7 +342,6 @@
           lng: parseFloat( lng )
       };
 
-      //console.log(themeUri);
       var markerIcon = `${themeUri}/img/marker.png`;
   
       // Create marker instance.

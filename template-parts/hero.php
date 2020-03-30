@@ -98,7 +98,7 @@
 		</div>
 	</div>
 
-  <?php if ( is_page( 'sites' ) ) : ?>
+  <?php if ( is_post_type_archive( 'site' ) ) : ?>
 
   <div class="hero__map map">
     <?php

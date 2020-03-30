@@ -87,7 +87,7 @@ function crdtheme_scripts() {
 
 	wp_localize_script( 'gmap', 'themeUri', get_template_directory_uri() );
 	
-	if (is_singular('site') || is_page('sites')) {
+	if (is_singular( 'site' ) || is_post_type_archive( 'site' )) {
 		wp_enqueue_script( 'googlemap' );
 		wp_enqueue_script( 'gmap' );
 	}
