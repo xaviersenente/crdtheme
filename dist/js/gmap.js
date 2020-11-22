@@ -342,7 +342,7 @@
           lng: parseFloat( lng )
       };
 
-      var markerIcon = `${themeUri}/img/marker.png`;
+      var markerIcon = `${themeUri}/dist/img/marker.png`;
   
       // Create marker instance.
       var marker = new google.maps.Marker({

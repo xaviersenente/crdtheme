@@ -9,7 +9,10 @@
 
 ?>
 <?php get_template_part( 'template-parts/hero' ) ?>
-<div class="gutemberg">
+<div class="main-column">
 	<?php the_content(); ?>
 </div>
+<?php if( is_page( 'Inscription' ) ) {
+	echo do_shortcode('[contact-form-7 id="320" title="Formulaire de pré-inscription" html_class="main-column"]');
+} ?>
 

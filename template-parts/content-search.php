@@ -9,27 +9,15 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+<article class="searchResult">
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			crdtheme_posted_on();
-			crdtheme_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+	<div class="searchResult__type">
+		<?php 
+			$post_type_obj = get_post_type_object( get_post_type() );
+			echo $post_type_obj->labels->singular_name; ?>
+		</div>
+	<?php the_title( sprintf( '<h2 class="searchResult__title"><a href="%s" class="searchResult__titleLink" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+	<p class="searchResult__chapo"><?php the_excerpt(); ?></p>
+	<a class="searchResult__link morelink" href="<?php esc_url( get_permalink() ); ?>">Plus d'info</a>
 
-	<?php crdtheme_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php crdtheme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>

@@ -71,6 +71,7 @@
       <button class="header__menuBtn menuBurger" aria-label="menu" aria-expanded="false" aria-controls="mainNav">
         <span class="menuBurger__bar" aria-hidden="true"></span>
       </button>
+      <?php get_search_form(); ?>
       <nav class="header__menu menu" id="mainNav" aria-label="Menu principal">
         <?php
         /**

@@ -12,7 +12,7 @@
   <?php endif; ?>
   <h3 class="card__title">
     <a class="card__titleLink" href="<?php the_permalink(); ?>">
-      <?php the_title(); ?>
+      <?php the_title(); ?>      
     </a>
   </h3>
   <div class="card__caption">
@@ -22,7 +22,7 @@
     <?php if( has_excerpt() ): ?>
       <p class="card__excerpt"><?php echo get_the_excerpt(); ?></p>
     <?php endif; ?>
-    <a class="card__link" href="<?php the_permalink(); ?>">
+    <a class="card__link morelink" href="<?php the_permalink(); ?>">
       <?php echo esc_html__( "Plus d'info", 'text-domain' )?>
     </a>
   </div>
