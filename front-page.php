@@ -26,7 +26,10 @@
         ?>
 
         <section class="grid wrapper crd">
-          <header class="crd__header rellax" data-rellax-speed="2">
+          <div class="crd__img">
+            <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
+          </div>
+          <header class="crd__header">
             <p class="crd__content"><?php echo $chapo; ?></p>
             <?php if( $ctaBtn ): ?>
               <div class="crd__link">
@@ -52,10 +55,7 @@
               <?php endwhile; ?>
             </div>
           <?php endif;?>
-          <div class="crd__bg rellax" data-rellax-speed="2"></div>
-          <div class="crd__img">
-            <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
-          </div>
+          <div class="crd__bg"></div>
         </section>
 
         <?php 

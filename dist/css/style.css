@@ -2148,7 +2148,6 @@ body.show::before {
   left: 0;
   opacity: 0.3;
   z-index: -1;
-  transform: rotate(-90deg);
   transform-origin: 50% 80%;
   width: 100%;
 }
@@ -2257,6 +2256,9 @@ body.show::before {
 
 .wpcf7 input,
 .wpcf7 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background: none;
   border: none;
   border-bottom: 1px solid var(--gray-200);
