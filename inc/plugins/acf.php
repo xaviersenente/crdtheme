@@ -9,7 +9,7 @@ if( function_exists('acf_add_options_page') ) {
 	 */
 	acf_add_options_page([
 		'page_title' => 'Infos générales',
-		'menu_title' => 'Infos',
+		'menu_title' => 'Options',
 		'menu_slug' => 'infos-site',
 		'capability' => 'edit_posts',
 		'position' => 3,
@@ -26,6 +26,14 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'	=> 'infos-site',
 		'update_button' => 'Mettre à jour',
 		'post_id' => 'header_archives',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Sous-menu enseignements',
+		'menu_title'	=> 'Enseignements',
+		'parent_slug'	=> 'infos-site',
+		'update_button' => 'Mettre à jour',
+		'post_id' => 'header_enseignements',
 	));
 }
 

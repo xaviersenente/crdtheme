@@ -43,17 +43,6 @@ function crdtheme_display_page_title( $display = true ) {
 		}
 	}
 
-	// if ( is_post_type_archive() ) {
-  //   $rows = get_field( 'header_archive', 'header_archives' );
-  //   if( $rows ) :
-  //     foreach( $rows as $row ) :
-  //       if ( $row['cpt_header_archive'] == get_post_type() ) : 
-  //         $title = $row['title_header_archive'];
-  //       endif;
-  //     endforeach;
-  //   endif;
-	// }
-
 	// S'il y a une catégorie ou une étiquette (tag)
 	if ( is_category() || is_tag() ) {
 		$title = single_term_title( '', false );

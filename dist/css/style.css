@@ -2304,6 +2304,17 @@ body.show::before {
   }
 }
 
+.main-column a {
+  text-decoration: none;
+  color: var(--darkColor);
+  border-bottom: 1px solid var(--gray-300);
+  transition: all .3s;
+}
+
+.main-column a:hover {
+  border-bottom-color: var(--darkColor);
+}
+
 .main-column figure {
   margin: 0;
 }

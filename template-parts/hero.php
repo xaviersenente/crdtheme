@@ -37,15 +37,16 @@
     <?php endif ?>
   </header>
 
-  <div class="hero__chapo chapo <?php if ( is_front_page() ) { echo '-col3'; } ?>">
+  <div class="hero__chapo chapo <?php if ( is_front_page() || is_page( 'Enseignements' ) ) { echo '-col3'; } ?>">
 
-    <?php if ( is_front_page() ) :
+    <?php if ( is_front_page() || is_page( 'Enseignements' ) ) :
       /**
        * Boucle du repéteur d'ACF
        * @link https://www.advancedcustomfields.com/resources/repeater/
        */
-      if( have_rows( 'item_menu' ) ):
-        while ( have_rows( 'item_menu' ) ) : the_row();
+
+      if( have_rows( 'item_menu', 'header_enseignements' ) ):
+        while ( have_rows( 'item_menu', 'header_enseignements' ) ) : the_row();
           $itemMenuSvg  = get_sub_field( 'item_menu_svg' );
           $itemMenuTxt  = get_sub_field( 'item_menu_txt' );
           $itemMenuLink = get_sub_field( 'item_menu_link' );

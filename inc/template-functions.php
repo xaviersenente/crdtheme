@@ -68,6 +68,7 @@ function crdtheme_setup() {
    * @link https://developer.wordpress.org/reference/functions/add_image_size/
    */
   add_image_size( 'square', 1024, 1024, true);
+  add_image_size( 'paysage', 1024, 680, true);
 
 }
 
@@ -106,7 +107,7 @@ function crdtheme_scripts_styles() {
 
 	wp_localize_script( 'gmap', 'themeUri', get_template_directory_uri() );
 	
-	if (is_singular( 'site' ) || is_post_type_archive( 'site' )) {
+	if (is_singular( 'site' ) || is_post_type_archive( 'site' ) || is_page( 'Contact' )) {
 		wp_enqueue_script( 'googlemap' );
 		wp_enqueue_script( 'gmap' );
 	}
