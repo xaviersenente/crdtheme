@@ -7,25 +7,25 @@
  */
 
 // Intégration du fichier avec les appels add_action().
-require get_template_directory() . '/inc/actions.php';
+require_once get_template_directory() . '/inc/actions.php';
 
 // Intégration du fichier avec les appels add_filter().
-require get_template_directory() . '/inc/filters.php';
+require_once get_template_directory() . '/inc/filters.php';
 
 // Intégration du fichier avec les fonctions de filtrage.
-require get_template_directory() . '/inc/filter-functions.php';
+require_once get_template_directory() . '/inc/filter-functions.php';
 
 // Intégration du fichier avec les fonctions de template.
-require get_template_directory() . '/inc/template-functions.php';
+require_once get_template_directory() . '/inc/template-functions.php';
 
 // Intégration du fichier avec les fonctions appelées depuis les fichiers de template.
-require get_template_directory() . '/inc/template-tags.php';
+require_once get_template_directory() . '/inc/template-tags.php';
 
 // Walker Nav Menu.
-require get_template_directory() . '/classes/class-crd-walker-menu.php';
+require_once get_template_directory() . '/classes/class-crd-walker-menu.php';
 
 // Plugin ACF
-require get_template_directory() . '/inc/plugins/acf.php';
+require_once get_template_directory() . '/inc/plugins/acf.php';
 
 
 

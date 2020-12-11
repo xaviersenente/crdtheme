@@ -16,7 +16,7 @@
   }
 ?>
 
-<div class="grid -fullHeight wrapper -withoutMargin hero">
+<div class="grid -fullHeight -withoutMargin hero">
   <header class="hero__header">
     <h1 class="hero__title">
       <?php crdtheme_display_page_title(); ?>

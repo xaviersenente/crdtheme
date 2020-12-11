@@ -18,7 +18,7 @@
 ?>
 
 	</main>
-  <footer class="grid wrapper -withoutMargin footer">
+  <footer class="grid -withoutMargin footer">
     <div class="footer__logo">
       <img src="<?php echo $logoFooter['url']; ?>" class="style-svg"/>
     </div>
@@ -34,7 +34,7 @@
     
     <div class="footer__contact">
       <h3 class="footer__title">Contact</h3>
-      <address class="footer__adresse">
+      <address class="footer__address">
         <?php echo $adresse['street_number']; ?> <?php echo $adresse['street_name']; ?><br>
         <?php echo $adresse['post_code']; ?> <?php echo $adresse['city']; ?><br>
         <a href="tel:<?php echo $tel; ?>"><?php echo $tel; ?></a>

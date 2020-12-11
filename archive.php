@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<?php
 		if(have_posts()) : ?>
-		<div class="grid wrapper">
+		<div class="grid">
 			<?php	while(have_posts()) : the_post(); 
 			
 				get_template_part('template-parts/card', 'card');

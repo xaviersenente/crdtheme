@@ -1,6 +1,4 @@
 <?php 
-  $taxonomies    = get_query_var( 'taxonomies' );
-  $dateObject    = get_query_var( 'dateObject' );
   /**
    * Format d'affichage de la date
    * @link http://php.net/manual/fr/function.date.php
@@ -10,18 +8,20 @@
    * @link https://codex.wordpress.org/Function_Reference/date_i18n
    */
   $dateformat    = 'l j F Y \à G\hi';
-  $unixtimestamp = strtotime( $dateObject['value'] );
+  $unixtimestamp = strtotime( $args['dateObject']['value'] );
   $date          = date_i18n( $dateformat, $unixtimestamp );
+
+  
   
 ?>
 
 <ul class="infos">
   <li class="infos__row">
-    <span class="infos__label"><?php echo $dateObject['label'] ?></span>
+    <span class="infos__label"><?php echo $args['dateObject']['label'] ?></span>
     <span class="infos__value"><?php echo $date; ?></span>
   </li>
   <?php 
-    foreach ( $taxonomies as $taxonomy ) :
+    foreach ( $args['taxonomies'] as $taxonomy ) :
       /**
        * On retourne un objet de chaque taxonomie pour pouvoir récupérer leur nom.
        * @link https://developer.wordpress.org/reference/functions/get_taxonomy/

@@ -72,19 +72,6 @@ function crdtheme_setup() {
 
 }
 
-
-/**
- * Enregistre les emplacements du menu de navigation pour un thème.
- * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
- */
-function crdtheme_register_menus() {
-  register_nav_menus( array(
-    'main-menu' => esc_html__( 'En-tête de page', 'crdtheme' ),
-    'footer-menu' => esc_html__( 'Pied de page', 'crdtheme' )
-  ) );
-}
-
-
 /**
  * File d'attente des scripts et des styles.
  */
@@ -114,8 +101,15 @@ function crdtheme_scripts_styles() {
 
 }
 
-function crdtheme_gutenberg_gallery_block() {
-	wp_enqueue_script('gutenberg-gallery-block', get_theme_file_uri( '/dist/js/block.js' ), ['wp-blocks']);
+/**
+ * Enregistre les emplacements du menu de navigation pour un thème.
+ * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+ */
+function crdtheme_register_menus() {
+  register_nav_menus( array(
+    'main-menu' => esc_html__( 'En-tête de page', 'crdtheme' ),
+    'footer-menu' => esc_html__( 'Pied de page', 'crdtheme' )
+  ) );
 }
 
 /**

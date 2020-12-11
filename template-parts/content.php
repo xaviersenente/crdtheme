@@ -14,17 +14,23 @@
 		<?php the_title( '<h1 class="single__title">', '</h1>' ); ?>
 
 		<?php if ( is_singular( 'event' ) ) {
-			set_query_var( 'taxonomies', get_post_taxonomies() ); 
-			set_query_var( 'dateObject', get_field_object( 'date' ) ); 
 
-			get_template_part( 'template-parts/infos-event' );
+			$args = array( 
+				'taxonomies' => get_post_taxonomies(),
+				'dateObject' => get_field_object( 'date' )
+			);
+
+			get_template_part( 'template-parts/infos', 'event', $args );
 
 		} elseif ( is_singular( 'site' ) ) {
-			set_query_var( 'directeur', get_field_object( 'directeur_site' ) );
-			set_query_var( 'adresse', get_field_object( 'adresse_site' ) );
-			set_query_var( 'horaires', get_field_object( 'horaires_site' ) );
+
+			$args = array( 
+				'directeur' => get_field_object( 'directeur_site' ),
+				'adresse' 	=> get_field_object( 'adresse_site' ),
+				'horaires' 	=> get_field_object( 'horaires_site' )
+			);
 	
-			get_template_part( 'template-parts/infos-site' );
+			get_template_part( 'template-parts/infos', 'site', $args );
 		} ?>
 
 	</header>

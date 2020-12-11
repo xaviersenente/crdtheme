@@ -933,7 +933,6 @@ svg {
   cursor: pointer;
   letter-spacing: 1px;
   font-weight: bold;
-  display: inline-block;
   padding: 16px 24px;
   border: 1px solid var(--vermillion);
   color: var(--DarkColor);
@@ -951,7 +950,7 @@ svg {
   * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
   **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   transition: all .3s ease-in-out;
@@ -996,6 +995,7 @@ svg {
 
 .morelink {
   text-decoration: none;
+  text-transform: uppercase;
   color: var(--darkColor);
   position: relative;
   display: inline-block;
@@ -1312,6 +1312,7 @@ svg {
 .card__titleLink {
   color: var(--lightColor);
   text-decoration: none;
+  display: block;
 }
 
 .card__caption {
@@ -1322,10 +1323,13 @@ svg {
   padding: 28px;
 }
 
-.card__date,
+.card__date {
+  text-transform: uppercase;
+  margin: 0;
+}
+
 .card__link {
   margin: 0;
-  text-transform: uppercase;
 }
 
 .carousel {
@@ -1593,6 +1597,11 @@ svg {
 .searchResult__titleLink {
   text-decoration: none;
   color: var(--darkColor);
+  border: none !important;
+}
+
+.searchResult__link {
+  border: none !important;
 }
 
 :root {
@@ -1671,6 +1680,13 @@ body.show::before {
   }
 }
 
+.grid {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
 @media (min-width: 960px) {
   .grid {
     display: grid;
@@ -1696,6 +1712,11 @@ body.show::before {
   }
 }
 
+.grid.-withoutMargin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .grid.-fullHeight {
   height: 100vh;
   display: grid;
@@ -1711,18 +1732,6 @@ body.show::before {
 
 .grid.-inverse::before {
   background-color: var(--lightColor);
-}
-
-.wrapper {
-  margin-top: 6rem;
-  margin-bottom: 6rem;
-  padding-right: 24px;
-  padding-left: 24px;
-}
-
-.wrapper.-withoutMargin {
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .header {
@@ -1898,7 +1907,7 @@ body.show::before {
   margin-top: 0;
 }
 
-.footer__adresse {
+.footer__address {
   font-style: normal;
 }
 
@@ -1961,15 +1970,11 @@ body.show::before {
   line-height: 1.5;
 }
 
-.section__link {
-  display: flex;
-}
-
 @media (min-width: 960px) {
   .section__link {
     grid-column: 9 / span 4;
     justify-self: end;
-    display: block;
+    align-self: flex-start;
   }
 }
 
@@ -2055,11 +2060,7 @@ body.show::before {
   padding: 80px 0 104px;
 }
 
-.crd__link {
-  display: flex;
-}
-
-.crd__content {
+.crd__title {
   /**
   * @link https://css-tricks.com/snippets/css/fluid-typography/
   * Calcul du "scaler" :
@@ -2079,13 +2080,13 @@ body.show::before {
   font-style: italic;
 }
 
-.crd__content strong {
+.crd__title strong {
   font-weight: normal;
   position: relative;
   display: inline-block;
 }
 
-.crd__content strong::before {
+.crd__title strong::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -2129,16 +2130,17 @@ body.show::before {
   font-size: clamp(3rem, calc( 3rem + 16 * ( ( 100vw - 640px ) / 656 )), 4rem);
   line-height: 1.1;
   color: var(--vermillion);
+  display: block;
+}
+
+.single .grid:first-child {
+  margin-top: 0;
 }
 
 @media (min-width: 960px) {
   .single {
     margin-top: 112px;
   }
-}
-
-.single .wrapper:first-child {
-  margin-top: 0;
 }
 
 .single__patterns {
@@ -2381,6 +2383,7 @@ body.show::before {
   letter-spacing: 1px;
   font-weight: bold;
   color: var(--darkColor);
+  border: none;
 }
 
 .wp-block-file__button {
@@ -2426,4 +2429,8 @@ body.show::before {
 .pagination .nav-links .current {
   border: 1px solid var(--gray-200);
   border-radius: 50%;
+}
+
+.cn-button.wp-default {
+  background: var(--vermillon);
 }
