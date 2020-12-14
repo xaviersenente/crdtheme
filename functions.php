@@ -18,9 +18,6 @@ require_once get_template_directory() . '/inc/filter-functions.php';
 // Intégration du fichier avec les fonctions de template.
 require_once get_template_directory() . '/inc/template-functions.php';
 
-// Intégration du fichier avec les fonctions appelées depuis les fichiers de template.
-require_once get_template_directory() . '/inc/template-tags.php';
-
 // Walker Nav Menu.
 require_once get_template_directory() . '/classes/class-crd-walker-menu.php';
 

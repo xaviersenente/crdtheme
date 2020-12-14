@@ -1,37 +1,63 @@
 <?php 
 
-  $hero       = get_field('header_archive_default', 'header_archives');
-  $hero_event = get_field('header_archive_event', 'header_archives');
-  $hero_site  = get_field('header_archive_site', 'header_archives');
+  $hero       = get_field( 'header_archive_default', 'header_archives' );
+  $hero_event = get_field( 'header_archive_event', 'header_archives' );
+  $hero_site  = get_field( 'header_archive_site', 'header_archives' );
 
   if ( is_post_type_archive( 'event' ) ) {
-    $img_archive    = $hero_event['img_header_archive'];
-    $chapo_archive  = $hero_event['chapo_header_archive'];
+    $img_archive    = $hero_event[ 'img_header_archive' ];
+    $chapo_archive  = $hero_event[ 'chapo_header_archive' ];
   } elseif ( is_post_type_archive( 'site' ) ) {
-    $img_archive    = $hero_site['img_header_archive'];
-    $chapo_archive  = $hero_site['chapo_header_archive'];
+    $img_archive    = $hero_site[ 'img_header_archive' ];
+    $chapo_archive  = $hero_site[ 'chapo_header_archive' ];
   } else {
-    $img_archive    = $hero['img_header_archive'];
-    $chapo_archive  = $hero['chapo_header_archive'];
+    $img_archive    = $hero[ 'img_header_archive' ];
+    $chapo_archive  = $hero[ 'chapo_header_archive' ];
   }
+
+
+  if( is_post_type_archive() ) { 
+    $img   = wp_get_attachment_image( $img_archive, 'full' );
+    $title = post_type_archive_title( '', false );
+    $chapo = $chapo_archive; 
+  } 
+  elseif ( is_tax() ) {
+    $img   = wp_get_attachment_image( $img_archive, 'full' );
+    $term  = get_queried_object();
+		if ( $term ) {
+			$tax   = get_taxonomy( $term->taxonomy );
+			$title = single_term_title( $tax->labels->name . ' <br> ', false );
+		}
+    $chapo = term_description();
+  } 
+  elseif ( is_search() ) {
+    $img   = wp_get_attachment_image( $img_archive, 'full' );
+    $title = __( 'Recherche' );
+    $chapo = sprintf( __( 'Résultats de la recherche pour : %s' ), strip_tags( get_query_var( 's' ) ) );
+  } 
+  elseif ( is_front_page() ) {
+    $img      = get_the_post_thumbnail( $post_id, 'full' );
+    $title    = get_bloginfo( 'name' );
+    $subtitle = html_entity_decode( get_bloginfo( 'description' ) );
+  } 
+  else { 
+    $img   = get_the_post_thumbnail( $post_id, 'full' );
+    $title = get_the_title();
+    $chapo = get_the_excerpt(); 
+  }
+
 ?>
 
 <div class="grid -fullHeight -withoutMargin hero">
   <header class="hero__header">
     <h1 class="hero__title">
-      <?php crdtheme_display_page_title(); ?>
+      <?php echo $title; ?>
     </h1>
 
-    <?php 
-      /**
-       * Les "conditional tags" sont utilisées pour modifier l'affichage du contenu 
-       * en fonction des conditions auxquelles la page actuelle correspond.
-       * @link https://developer.wordpress.org/themes/basics/conditional-tags/#the-front-page
-       */
-      if ( is_front_page() ) : ?>
+    <?php if ( is_front_page() ) : ?>
 
       <h3 class="hero__subTitle">
-        <?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?>
+        <?php echo $subtitle; ?>
       </h3>
         
     <?php endif ?>
@@ -62,31 +88,14 @@
         <?php 
         endwhile; 
       endif; 
-    else : 
+    else : ?>
 
-      if ( is_archive() )       $chapo = $chapo_archive;
-      elseif ( is_tax() )       $chapo = the_archive_description();
-      elseif ( is_search() )    $chapo = sprintf( __( 'Résultats de la recherche pour : %s' ), strip_tags( get_query_var( 's' ) ) );
-      elseif ( has_excerpt() )  $chapo = get_the_excerpt();
-
-      if ( !empty( $chapo ) ) echo '<p class="chapo__text">' . $chapo . '</p>';
+    <?php if( $chapo ) echo '<p class="chapo__text">' . $chapo . '</p>'; ?>
       
-    endif; ?>
+    <?php endif; ?>
   </div>
 
-  <?php 
-  /**
-   * Affiche l'image sur les pages d'archive
-   * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/
-   */
-
-  if ( is_archive() && ! is_post_type_archive( 'site' ) ) : ?>
-
-    <div class="duotone hero__img">
-      <?php echo wp_get_attachment_image( $img_archive, 'full' ); ?>
-    </div>
-
-  <?php elseif ( is_archive() && is_post_type_archive( 'site' ) ) : ?>
+  <?php if ( is_archive() && is_post_type_archive( 'site' ) ) : ?>
 
     <div class="hero__map map" data-zoom="13">
     <?php 
@@ -106,10 +115,7 @@
   <?php else : ?>
 
     <div class="duotone hero__img">
-      <?php 
-        if( has_post_thumbnail() ) the_post_thumbnail( 'full' ); 
-        else echo wp_get_attachment_image( $img_archive, 'full' ); 
-      ?>
+      <?php echo $img; ?>
     </div>
 
   <?php endif; ?>

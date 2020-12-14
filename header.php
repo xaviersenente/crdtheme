@@ -83,7 +83,7 @@
           'container'      => false,
           'menu_class'     => 'menu__list',
           'depth'          => 2,
-          'walker'         => new WPDocs_Walker_Nav_Menu()
+          'walker'         => new MyCustom_Walker_Nav_Menu()
         ) );
         ?>
       </nav>

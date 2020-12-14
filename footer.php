@@ -42,29 +42,21 @@
       </address>
     </div>
     <div class="footer__social">
+      <?php if( have_rows( 'infos_reseaux_sociaux', 'infos' ) ): ?>
       <h3 class="footer__title">Nous suivre</h3>
       <ul class="footer__list listUnstyled">
         <?php while(have_rows('infos_reseaux_sociaux', 'infos')): the_row();
           $reseau_social = get_sub_field('infos_reseau_social');
           $url = get_sub_field('infos_url_reseau_social');
-          $icon = '';
-          if($reseau_social == 'facebook') {
-            $icon = 'iconFacebook';
-          } elseif ($reseau_social == 'twitter') {
-            $icon = 'iconTwitter';
-          } elseif ($reseau_social == 'instagram') {
-            $icon = 'iconInstagram';
-          } elseif ($reseau_social == 'youtube') {
-            $icon = 'iconYoutube';
-          }
         ?>
         <li>
           <a href="<?php echo $url; ?>" aria-label="Notre page <?php echo $reseau_social; ?>">
-            <i class="<?php echo $icon; ?>" aria-hidden="true"></i>
+            <i class="icon<?php echo $reseau_social; ?>" aria-hidden="true"></i>
           </a>
         </li>
         <?php endwhile; ?>
       </ul>
+      <?php endif; ?>
     </div>
     <div class="footer__gb">
       <img src="<?php echo $logoGB['url']; ?>" class="style-svg"/>

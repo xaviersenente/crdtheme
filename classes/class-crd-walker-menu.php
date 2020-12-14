@@ -3,7 +3,7 @@
  * La classe Walker_Nav_Menu permet de personnaliser le rendu des menus de wordpress
  * @link https://developer.wordpress.org/reference/classes/walker_nav_menu/
  */
-class WPDocs_Walker_Nav_Menu extends Walker_Nav_Menu {
+class MyCustom_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	private $menuClass 						 = 'menu__list';      // Classe du menu
 	private $menuItemClass 				 = 'menu__item';      

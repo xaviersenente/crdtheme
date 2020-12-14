@@ -9,6 +9,7 @@
 
 ?>
 <?php get_template_part( 'template-parts/hero' ) ?>
+
 <div class="main-column">
 	<?php the_content(); ?>
 </div>

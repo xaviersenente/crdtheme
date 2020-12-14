@@ -9,7 +9,7 @@ Theme Name: crdtheme
 Description: Thème du Conservatoire de Belfort
 Author: Xavier SENENTE
 */
-@import url("https://fonts.googleapis.com/css?family=Muli:300,300i,700,700i|Space+Mono:400,400i&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,700;1,300;1,700&family=Space+Mono:ital@0;1&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -506,18 +506,6 @@ https://flickity.metafizzy.co
   opacity: 1;
 }
 
-/**
-* Fonction qui permet de retourner une valeur sans son unité de mesure
-**/
-/**
-* Système de Breakpoint repris de Bootstrap
-**/
-/**
-* Mixin qui permet de rendre la taille de typographie fluide
-**/
-/**
-* Système de Breakpoint repris de Bootstrap
-**/
 .listUnstyled, .menu__list, .infos {
   list-style: none;
   margin: 0;
@@ -552,29 +540,12 @@ https://flickity.metafizzy.co
 }
 
 body {
-  font-family: "Muli", sans-serif;
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
+  font-family: "Mulish", Helvetica, sans-serif;
   font-size: clamp(0.8125rem, calc( 0.8125rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.9375rem);
   line-height: 1.6;
   background-color: var(--lightColor);
 }
 
-/* Bug IOS
-/* => L'overflow doit être appliqué sur l'élément body ET html
-/* pour faire disparaître le scroll sur safari IOS
-*/
 .noscroll,
 .noscroll body {
   overflow: hidden;
@@ -582,60 +553,21 @@ body {
 
 h1,
 h2 {
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", courier, monospace;
   font-weight: normal;
 }
 
 h1, .h1 {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(2.25rem, calc( 2.25rem + 28 * ( ( 100vw - 640px ) / 656 )), 4rem);
   line-height: 1.1;
 }
 
 h2, .h2 {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.75rem, calc( 1.75rem + 4 * ( ( 100vw - 640px ) / 656 )), 2rem);
   line-height: 1.1;
 }
 
 h3, .h3 {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.125rem, calc( 1.125rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.5rem);
   line-height: 1.4;
 }
@@ -721,6 +653,7 @@ svg {
   transition: all 0.2s ease-in-out;
 }
 
+.duotone.single__img,
 .duotone.single__img img {
   align-self: flex-start;
 }
@@ -740,19 +673,6 @@ svg {
 
 .menu {
   display: flex;
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
   font-weight: bold;
   text-transform: uppercase;
@@ -770,19 +690,6 @@ svg {
     width: 100vw;
     height: 100vh;
     background: var(--violet);
-    /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-    /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
     font-size: clamp(1.375rem, calc( 1.375rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.75rem);
     line-height: 1.5;
     font-weight: 300;
@@ -936,19 +843,6 @@ svg {
   padding: 16px 24px;
   border: 1px solid var(--vermillion);
   color: var(--DarkColor);
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
   display: inline-flex;
   justify-content: center;
@@ -1052,19 +946,6 @@ svg {
 .hero__subTitle {
   text-transform: uppercase;
   letter-spacing: 0.0625rem;
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
 }
 
@@ -1161,40 +1042,14 @@ svg {
 }
 
 .chapo__title {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.375rem, calc( 1.375rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.75rem);
   line-height: 1.5;
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", courier, monospace;
   font-weight: normal;
 }
 
 @media (min-width: 960px) {
   .chapo__title {
-    /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-    /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
     font-size: clamp(1.75rem, calc( 1.75rem + 4 * ( ( 100vw - 640px ) / 656 )), 2rem);
     line-height: 1.1;
   }
@@ -1219,19 +1074,6 @@ svg {
 }
 
 .chapo__text {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.375rem, calc( 1.375rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.75rem);
   line-height: 1.5;
 }
@@ -1289,22 +1131,9 @@ svg {
   z-index: 1;
   align-self: flex-end;
   color: var(--lightColor);
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", courier, monospace;
   font-weight: normal;
   margin-right: 16px;
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.75rem, calc( 1.75rem + 4 * ( ( 100vw - 640px ) / 656 )), 2rem);
   line-height: 1.1;
 }
@@ -1518,19 +1347,6 @@ svg {
 }
 
 .searchForm__input {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.125rem, calc( 1.125rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.5rem);
   height: 100%;
   width: 80%;
@@ -1543,19 +1359,6 @@ svg {
   appearance: none;
   background: inherit;
   border: 1px solid var(--gray-200);
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.125rem, calc( 1.125rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.5rem);
   padding: 24px;
   width: 100%;
@@ -1578,19 +1381,6 @@ svg {
   letter-spacing: 1px;
   font-weight: bold;
   color: var(--gray-300);
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
 }
 
@@ -1691,12 +1481,6 @@ body.show::before {
   .grid {
     display: grid;
     grid-gap: 48px;
-    /**
-		* grid-auto-flow indique le fonctionnement de l'algorithme de placement automatique et
-		* détaille comment les éléments placés automatiquement « coulent » dans la grille.
-		* Avec la valeur "dense" l'algorithme utilisera une méthode de « regroupement dense »
-		* où il essaie de remplir les trous dans la grille si des éléments plus petits arrivent ensuite.
-		**/
     grid: auto-flow dense/repeat(12, minmax(0, calc( ( 1248px - 48px * ( 12 - 1 ) ) / 12)));
     justify-content: center;
   }
@@ -1882,19 +1666,6 @@ body.show::before {
 
 .footer__list {
   display: flex;
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.375rem, calc( 1.375rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.75rem);
   line-height: 1.5;
 }
@@ -1934,38 +1705,12 @@ body.show::before {
 }
 
 .section__title {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(2.25rem, calc( 2.25rem + 28 * ( ( 100vw - 640px ) / 656 )), 4rem);
   line-height: 1.1;
   margin: 0;
 }
 
 .section__intro {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.375rem, calc( 1.375rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.75rem);
   line-height: 1.5;
 }
@@ -2061,22 +1806,9 @@ body.show::before {
 }
 
 .crd__title {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.375rem, calc( 1.375rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.75rem);
   line-height: 1.5;
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", courier, monospace;
   font-style: italic;
 }
 
@@ -2114,19 +1846,6 @@ body.show::before {
 }
 
 .stat__chiffre {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(3rem, calc( 3rem + 16 * ( ( 100vw - 640px ) / 656 )), 4rem);
   line-height: 1.1;
   color: var(--vermillion);
@@ -2186,19 +1905,6 @@ body.show::before {
 .single__excerpt {
   padding-left: 24px;
   padding-right: 24px;
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(1.375rem, calc( 1.375rem + 6 * ( ( 100vw - 640px ) / 656 )), 1.75rem);
   line-height: 1.5;
   margin-top: 3.625rem;
@@ -2221,19 +1927,6 @@ body.show::before {
 }
 
 .infos__label {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -2336,19 +2029,6 @@ body.show::before {
 }
 
 .main-column figcaption {
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
   color: var(--gray-300);
 }
@@ -2361,19 +2041,6 @@ body.show::before {
   padding-top: 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--gray-200);
-  /**
-  * @link https://css-tricks.com/snippets/css/fluid-typography/
-  * Calcul du "scaler" :
-  * calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-  * Exemple avec $heading-1 :
-  * taille d'écran min    => 48 + (64 - 48) * ((576 - 576) / (1170 - 576)) = 48 + 16 * (0 / 594) = 48
-  * taille d'écran medium => 48 + (64 - 48) * ((873 - 576) / (1170 - 576)) = 48 + 16 * (297 / 594) = 56
-  * taille d'écran max    => 48 + (64 - 48) * ((1170 - 576) / (1170 - 576)) = 48 + 16 * (594 / 594) = 64
-  **/
-  /**
-  * La fonction CSS clamp() permet de ramener une valeur entre deux bornes inférieure et supérieure. 
-  * Cette fonction utilise trois paramètres : une valeur minimale, la valeur à tester et une valeur maximale.
-  **/
   font-size: clamp(0.6875rem, calc( 0.6875rem + 2 * ( ( 100vw - 640px ) / 656 )), 0.8125rem);
 }
 
